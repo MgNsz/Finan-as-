@@ -1,14 +1,17 @@
+// JavaScript para manipular login com CPFs de teste
+const admCPF = "000.000.000-00";
+const clienteCPF = "111.111.111-11";
+
 document.getElementById("loginForm").addEventListener("submit", function (event) {
-    event.preventDefault();
-    const cpf = document.getElementById("cpf").value.trim();
-  
-    // Verificar CPF e redirecionar
-    if (cpf === "000.000.000-00") {
-      window.location.href = "admin.html";  // Redireciona para a área administrativa
-    } else if (cpf === "111.111.111-11") {
-      window.location.href = "cliente.html";  // Redireciona para a área do cliente
-    } else {
-      alert("CPF inválido!");  // Exibe um alerta se o CPF não for válido
-    }
-  });
-  
+  event.preventDefault(); // Impede o envio do formulário
+
+  const cpf = document.getElementById("cpf").value.trim();
+
+  if (cpf === admCPF) {
+    window.location.href = "admin.html"; // Redireciona para a área de administrador
+  } else if (cpf === clienteCPF) {
+    window.location.href = "cliente.html"; // Redireciona para a área de cliente
+  } else {
+    alert("CPF inválido ou não cadastrado.");
+  }
+});
